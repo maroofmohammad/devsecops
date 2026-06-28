@@ -11,3 +11,7 @@ jobs:
     # Code stage (With Shift Left Security)
     code-quality:
         uses: ./.github/workflows/code-quality.yml 
+
+    # Secret Scanning stage (With Shift Left Security)
+    secret-scanning:
+        uses: ./.github/workflows/secret-scanning.yml
