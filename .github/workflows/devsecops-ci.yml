@@ -15,3 +15,8 @@ jobs:
     # Secret Scanning stage (With Shift Left Security)
     secret-scanning:
         uses: ./.github/workflows/secret-scanning.yml
+
+
+    # Dependency Checks
+    dependency-scan:
+        uses: ./.github/workflows/dependency-scan.yml
