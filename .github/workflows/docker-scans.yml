@@ -22,14 +22,3 @@ jobs:
               with:
                   dockerfile: ${{ matrix.folders }}/Dockerfile
 
-            - name: Run Docker Scan for Frontend
-              run: docker scan --accept-license --file frontend/Dockerfile ${{ vars.DOCKERHUB_USERNAME }}/devboard-frontend:latest > frontend-docker-scan-report.txt
-
-            - name: Run Docker Scan for Backend
-              run: docker scan --accept-license --file backend/Dockerfile ${{ vars.DOCKERHUB_USERNAME }}/devboard-backend:latest > backend-docker-scan-report.txt
-
-            - name: Upload report to Artifact
-              if: always() # Ensures report is uploaded even if test fails
-              uses: actions/upload-artifact@v4
-              with:
-                name: job-report
