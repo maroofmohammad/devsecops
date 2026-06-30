@@ -26,3 +26,16 @@ jobs:
     docker-checks:
         uses: ./.github/workflows/docker-scans.yml
         secrets: inherit
+
+    
+    # Code Tests
+    code-tests:
+        uses: ./.github/workflows/code-tests.yml
+        secrets: inherit
+
+
+    # Docker Push
+    docker-push:    
+        uses: ./.github/workflows/docker-pushz.yml
+        needs: [code-quality, secret-scanning, dependency-scan, docker-checks, code-tests]
+        secrets: inherit
